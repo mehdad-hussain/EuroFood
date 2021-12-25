@@ -13,6 +13,23 @@
   overflow-x: hidden;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.details::-webkit-scrollbar,
+.product-content::-webkit-scrollbar,
+.card-group::-webkit-scrollbar,
+.query-section::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.details,
+.product-content,
+.card-group,
+.query-section {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -44,6 +61,7 @@ html {
 //  <!-- Social Icons Styles -->
 
 .social-icon {
+  overflow-y: hidden;
   margin-top: 0.5rem;
   // margin-left: 1rem;
   span {
@@ -72,6 +90,8 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
+  position: relative;
   z-index: -1;
 }
 .overlay {
@@ -118,7 +138,7 @@ html {
     border: 1px solid #ee3436;
     &:hover {
       background-color: #ee3436;
-      transition: all 0.5s;
+      transition: all 0.5s ease-out 0.2s;
     }
   }
   .btn-green {
@@ -128,7 +148,7 @@ html {
     &:hover {
       color: #fff;
       background-color: #08b05f;
-      transition: all 0.3s;
+      transition: all 0.3s ease-out 0s;
       svg {
         fill: #fff !important;
       }
@@ -148,9 +168,7 @@ html {
     color: #fff;
   }
   .details-child-1 {
-    // display: flex;
-    // // justify-content: center;
-    // flex-direction: column;
+    // margin-top: 6rem;
     width: 50%;
     padding-left: 2rem;
     text-align: end;
@@ -182,6 +200,7 @@ html {
     }
   }
   .details-child-2 {
+    margin-top: 3rem;
     width: 50%;
     border-right: 1px solid #666262;
     padding-right: 4rem;
@@ -205,6 +224,7 @@ html {
 }
 
 .product-content {
+  margin-top: 4rem;
   padding: 4rem 8rem 0rem 8rem;
   .product-title {
     border-bottom: 2px solid #08b05f;
@@ -214,6 +234,7 @@ html {
     font-size: 1.7rem;
   }
   p {
+    margin-top: 1.5rem;
     text-align: center;
     font-size: 1.1rem;
     padding-bottom: 0rem;
@@ -228,7 +249,7 @@ html {
   // grid-auto-rows: minmax(200px, auto);
   gap: 2em;
   padding: 4rem;
-
+  margin-left: 1.5rem;
   .card {
     display: flex;
     flex-direction: column;
@@ -259,6 +280,7 @@ html {
   text-align: center;
   margin: 2rem;
   padding: 1.5rem;
+  overflow-y: hidden;
   a {
     color: #fff;
     background-color: #ee3436;
@@ -271,13 +293,16 @@ html {
 }
 
 //  <!-- query & map section -->
+#supply {
+  padding-top: 2rem;
+}
 .query {
+  margin-top: 2.25rem;
   display: flex;
   flex-direction: column;
   text-align: center;
   padding: 4rem 4rem;
   width: 45%;
-  margin-top: 1.2rem;
   .form {
     display: flex;
     flex-direction: column;
@@ -315,14 +340,14 @@ html {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 4rem 4rem;
+  padding: 2rem 4rem;
   width: 45%;
   h2 {
     font-size: 2rem;
     // color: #212529;
     // padding-bottom: 1rem;
     width: 100%;
-    margin-bottom: 2.99rem;
+    margin-bottom: 3rem;
   }
   p {
     margin-top: -2rem;
@@ -344,6 +369,83 @@ html {
   background-color: #08b05f;
 }
 
+//  <!-- slider -->
+#gallery {
+  // background-color: #171819c0;
+  // padding: 4rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, rgba(185, 15, 15, 0.267), #5ef1a342);
+  width: 100%;
+  min-width: 576px;
+  position: relative;
+  top: 90%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.pic {
+  height: 499px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+.dot-container {
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+  width: 150px;
+  margin: 20px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+}
+button {
+  outline: none;
+  cursor: pointer;
+}
+.dot-container button {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  border: 3px solid #08b05f;
+  background-color: transparent;
+}
+.dot-container button:nth-child(1) {
+  background-color: #08b05f;
+}
+#prev,
+#next {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  background-color: #ee3436;
+  color: #ffffff;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+#prev {
+  left: 15px;
+}
+#next {
+  right: 15px;
+}
+
 //  <!-- footer section -->
 
 .footer {
@@ -355,6 +457,9 @@ html {
   }
   svg {
     margin-right: 0.5rem;
+  }
+  .footer-left {
+    margin-top: 1rem;
   }
 }
 
@@ -434,7 +539,7 @@ html {
       flex-direction: column;
       text-align: center;
       width: 300px;
-      height: 80vh;
+      height: 100vh;
       position: fixed;
       top: 0;
       right: -300px;
@@ -542,7 +647,7 @@ html {
 
   .query {
     padding: 2rem 2rem;
-    margin-top: 1rem;
+    margin-top: 2.25rem;
     .form {
       input,
       textarea {
