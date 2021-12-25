@@ -1,0 +1,52 @@
+//  <!-- few classes for inline html styles -->
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: grid;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-flex-end {
+  align-items: flex-end;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.justify-items-flex-start {
+  justify-items: flex-start;
+}
+.justify-items-flex-end {
+  justify-items: flex-end;
+}
+.justify-items-left {
+  justify-items: left;
+}
+.justify-items-right {
+  justify-items: right;
+}
